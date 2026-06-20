@@ -1,10 +1,43 @@
 # Meal Ticket Curry
 
-지역 어른들이 계산할 때 작은 금액을 더 보태면 아이들이 눈치 보지 않고 따뜻한 한 끼를 먹을 수 있는 “한 끼 티켓” 모바일/웹 서비스입니다.
+Meal Ticket Curry is a mobile-first web service concept for a simple community loop: an adult adds 200 yen at checkout, the store posts one meal ticket on the wall, and a child or guardian can use it for warm curry without shame.
 
-## Concept
+## Wave 1 Scope
 
-- 어른/후원자: 계산·후원 시 한 끼 티켓을 생성합니다.
-- 가게/지역 파트너: 티켓을 게시하고 사용 처리를 합니다.
-- 아이/보호자: 설명이나 낙인 없이 자연스럽게 티켓으로 식사합니다.
-- 운영자: 티켓 흐름, 안전 정책, 악용 방지, 정산을 관리합니다.
+Issue #3 implements the first scaffold slice from the ULW plan:
+
+- Product guardrails in `docs/product-policy.md`
+- Next.js App Router + TypeScript + Tailwind CSS
+- Public landing route at `/`
+- Accessible CTA links for the meal-ticket loop and privacy guardrails
+- Vitest unit/domain test
+- Playwright landing smoke test
+
+Wave 1 intentionally does not implement donor checkout, Stripe credentials, Supabase auth/RLS, redemption flow, settlement, or child identity collection.
+
+## Local Development
+
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Open `http://127.0.0.1:3000`.
+
+## Verification
+
+```bash
+npm run lint
+npm run typecheck
+npm run test -- --run
+npm run test:e2e
+npm run build
+```
+
+## Product Guardrails
+
+- Do not collect child names, photos, schools, phone numbers, or family details.
+- Do not add donor-to-child messaging, ranking, or public recognition mechanics.
+- Do not add payment credentials or live payment processor setup in Wave 1.
+- Keep ticket-use language discreet, ordinary, and neutral.
