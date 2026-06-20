@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# test artifacts
+playwright-report/
+test-results/
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# environment
+.env
+.env*.local
+
+# local agent/workflow state
+.omx/
+.omo/evidence/
+
+# macOS
+.DS_Store
